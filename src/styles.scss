@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.background-app{
+    background-color: rgb(230, 224, 224);
+}
+
+.bungee-title{
+    font-family: 'Bungee', cursive;
+    justify-content: center;
+    font-size: 30px;
+    margin-right: 0px !important;
+}
+
+.panel-body-font{
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-red{
+    color:rgb(253, 84, 98)
+}
+
+.tournament-container {
+    max-width: 500px;
+    min-height: 1200px;
+  }
+
+  .event-table-icon {
+    height: 16px;
+  }
+
+  .final-results-icon {
+    height: 20px;
+    margin-left: 7px;
+  }
+
+
