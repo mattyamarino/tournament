@@ -1,0 +1,42 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 event-score-table">
+   
+  <ng-container matColumnDef="icon">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> 
+      <span *ngIf="getIcon('1st', element)">
+        <img src="../../../../assets/trophy1use.svg" class="event-table-icon">
+      </span>
+      <span *ngIf="getIcon('2nd', element)">
+        <img src="../../../../assets/silver-medal -use.svg" class="event-table-icon">
+      </span>
+      <span *ngIf="getIcon('3rd', element)">
+        <img src="../../../../assets/bronze-medal - use.svg" class="event-table-icon">
+      </span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> {{element.position}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="points">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> {{getPoints(element.points)}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="ejc">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> {{element.ejc}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+

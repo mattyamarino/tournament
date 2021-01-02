@@ -1,0 +1,19 @@
+<mat-expansion-panel hideToggle class="expansion-panel-margin" expanded=false>
+    <mat-expansion-panel-header>
+        <mat-panel-title class="bungee-title">
+            Round {{ roundNumber}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngIf="roundNumber === finalRound">
+        <app-best-presentation-award
+        [bestPresentationWinners]="bestPresentationWinners"></app-best-presentation-award>
+    </div>
+    <div>
+        <span class="host">Host : &nbsp;{{ tournamentEvents[0].host }}</span>
+    </div>
+    <div *ngFor="let event of tournamentEvents;">
+        <div class="event-title">{{ event.eventName }}</div>
+        <div class="event-description">{{ event.eventDescription }}</div>
+        <app-event-result [tournamentEvent]="event"></app-event-result>
+    </div>
+</mat-expansion-panel>

@@ -1,0 +1,28 @@
+<div *ngIf="loading" class="centered">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading">
+    <div class="container">
+        <div class="row">
+            <div>
+                <app-logo-scoreboard 
+                [isFinalRound]="isFinalRound"
+                [placeOrder]="placeOrder"></app-logo-scoreboard>
+            </div>
+            <div class="col-12">
+                <mat-accordion multi="false">
+                    <div *ngFor="let events of eventIterator">
+                        <app-event-card-by-round 
+                        [roundNumber]="events[0]"
+                        [bestPresentationWinners]="bestPresentationWinners"
+                        [unfilteredEvents]="events"></app-event-card-by-round>
+                    </div>
+                    <app-scoring></app-scoring>
+                    <app-hosting></app-hosting>
+                    <app-wildcard></app-wildcard>
+                    <app-tiebreakers></app-tiebreakers>
+                </mat-accordion>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div [ngClass]="isFinalRound ? 'logo-container-final-results' : 'logo-container'">
+    <div class="row">
+        <div class="col-6" col align-self-center>
+            <br><br><br><br><br><br><br>
+            <app-score-card 
+                [isFinalRound]="isFinalRound"
+                [place]="contestantPositionMap.get(placeOrder[0])"
+                [isAllContestantsTied]="isAllContestantsTied"
+                [contestant]="placeOrder[0]">
+            </app-score-card>
+        </div>
+
+        <div class="col-6" col align-self-center>
+            <br><br><br><br><br><br><br>
+            <app-score-card 
+                [isFinalRound]="isFinalRound"
+                [place]="contestantPositionMap.get(placeOrder[1])"
+                [isAllContestantsTied]="isAllContestantsTied"
+                [contestant]="placeOrder[1]">
+            </app-score-card>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6" col align-self-center>
+            <br><br><br><br>
+            <app-score-card 
+                [isFinalRound]="isFinalRound"
+                [place]="contestantPositionMap.get(placeOrder[2])"
+                [isAllContestantsTied]="isAllContestantsTied"
+                [contestant]="placeOrder[2]">
+            </app-score-card>
+        </div>
+
+        <div class="col-6" col align-self-center>
+            <br><br><br><br>
+            <app-score-card 
+                [isFinalRound]="isFinalRound"
+                [place]="contestantPositionMap.get(placeOrder[3])"
+                [isAllContestantsTied]="isAllContestantsTied"
+                [contestant]="placeOrder[3]">
+            </app-score-card>
+        </div>
+    </div>
+</div>

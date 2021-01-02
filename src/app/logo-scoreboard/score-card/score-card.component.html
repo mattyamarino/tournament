@@ -1,0 +1,31 @@
+<mat-card class="score-card-container">
+    <div mat-card-avatar [ngClass]="contestant.avatar!"></div>
+    <div class="score-card-text-ml2">
+        <div>
+            <span class="card-title">{{ contestant.name! }}</span>
+            <span *ngIf="!isAllContestantsTied"> &nbsp; {{ place }}</span>
+        </div>
+        <div>
+            <span>{{ contestant.points }}pts</span>
+
+            <span *ngIf="!isFinalRound" class="font-red"> &nbsp; {{ getEjc() }}</span>
+            <span *ngIf="isFinalRound">
+                <span *ngIf="'1st' === place">
+                    <img src="../../../assets/trophy1use.svg" class="final-results-icon ">
+                </span>
+                <span *ngIf="'2nd' === place">
+                    <img src="../../../assets/silver-medal -use.svg" class="final-results-icon ">
+                </span>
+                <span *ngIf="'3rd' === place">
+                    <img src="../../../assets/bronze-medal - use.svg" class="final-results-icon ">
+                </span>
+                <span *ngIf="'4th' === place">
+                    <img src="../../../assets/last-place.svg" class="final-results-icon ">
+                </span>
+                <span *ngIf="contestant.isBestPresentation">
+                    <img src="../../../assets/ribbon.png" class="final-results-icon ">
+                </span>
+            </span>
+        </div>
+    </div>
+</mat-card>

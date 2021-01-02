@@ -1,0 +1,39 @@
+  tr.mat-header-row {
+    height: 1px !important;
+    text-align: center !important;
+  }
+  
+  .mat-column-position { 
+    border-bottom: none !important;
+    width: 45px !important;
+  }
+
+  .mat-column-points { 
+    border-bottom: none !important;
+    width: 70px !important;
+    text-align: center !important;
+  }
+
+  .mat-column-ejc { 
+    border-bottom: none !important;
+    width: 70px !important;
+    text-align: right !important;
+    color:rgb(253, 84, 98)
+  }
+
+  .mat-column-icon { 
+    border-bottom: none !important;
+    width: 60px !important;
+  }
+  
+  .mat-column-name { 
+    border-bottom: none !important;
+  }
+
+  .event-score-table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: rgb(85, 85, 85);
+  }
