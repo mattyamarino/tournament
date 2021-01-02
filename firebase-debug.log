@@ -1,0 +1,25 @@
+[debug] [2021-01-02T14:55:58.514Z] ----------------------------------------------------------------------
+[debug] [2021-01-02T14:55:58.518Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\779649\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-01-02T14:55:58.519Z] CLI Version:   9.1.0
+[debug] [2021-01-02T14:55:58.519Z] Platform:      win32
+[debug] [2021-01-02T14:55:58.519Z] Node Version:  v10.15.0
+[debug] [2021-01-02T14:55:58.520Z] Time:          Sat Jan 02 2021 08:55:58 GMT-0600 (Central Standard Time)
+[debug] [2021-01-02T14:55:58.520Z] ----------------------------------------------------------------------
+[debug] [2021-01-02T14:55:58.520Z] 
+[debug] [2021-01-02T14:55:58.535Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-02T14:55:58.536Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\779649\Desktop\practice\tournament-app
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
