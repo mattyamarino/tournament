@@ -9,11 +9,11 @@ import { TournamentEvent } from 'src/app/models/tournament-event';
 })
 export class EventCardByRoundComponent implements OnInit {
   @Input() roundNumber!: number;
-  @Input() unfilteredEvents = []; 
+  @Input() unfilteredEvents = [];
   @Input() bestPresentationWinners!: string;
   tournamentEvents!: TournamentEvent[];
   finalRound: number = FINAL_ROUND;
-
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -23,4 +23,6 @@ export class EventCardByRoundComponent implements OnInit {
   filterEvents(): void {
     this.tournamentEvents = this.unfilteredEvents[1];
   }
+
+
 }

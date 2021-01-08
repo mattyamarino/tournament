@@ -15,15 +15,12 @@
     text-align: center;
     margin-top: 5px;
     display: block;
+    margin-bottom: 5px;
 }
 
-.event-title{
-  font-family: 'Bungee', cursive;
-  text-align: center;
-  font-size: 12px;
-}
-
-.event-description{
-  text-align: center;
-  font-size: 12px;
+.eventContainer{
+  width: 288px;
+  height: 80px;
+  margin: auto;
+  background-position: center;
 }

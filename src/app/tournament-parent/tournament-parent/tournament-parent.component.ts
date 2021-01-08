@@ -22,6 +22,7 @@ export class TournamentParentComponent implements OnInit {
   loading!: boolean;
   isFinalRound: boolean = false;
   finalRound = FINAL_ROUND;
+  eventsCompletedInFinalRound: number = 0;
 
 
   constructor(private firestore: AngularFirestore) { }
@@ -52,12 +53,13 @@ export class TournamentParentComponent implements OnInit {
     this.events = [];
     this.placeOrder = [];
     this.bestPresentationWinners = '';
-
+    this.eventsCompletedInFinalRound = 0;
   }
 
   getTournamentEvents(): void {
     this.loading = true;
-    this.firestore.collection("tournamentEvents").valueChanges().subscribe(res => {
+    // this.firestore.collection("tournamentEvents").valueChanges().subscribe(res => {
+      this.firestore.collection("z-test-tournamentEvents").valueChanges().subscribe(res => {
       this.resetValues();
       this.events = <TournamentEvent[]>res;
       this.calculateScores();
@@ -87,7 +89,7 @@ export class TournamentParentComponent implements OnInit {
   }
 
   sortEventByRound(tournamentEvent: TournamentEvent): void {
-    this.setIfFinalRound(tournamentEvent);
+    this.setIfFinalRoundComplete(tournamentEvent);
     if (tournamentEvent.round !== 0 && this.eventsByRoundMap.get(tournamentEvent.round)) {
       this.eventsByRoundMap.get(tournamentEvent.round).push(tournamentEvent);
     } else if (tournamentEvent.round !== 0) {
@@ -95,9 +97,12 @@ export class TournamentParentComponent implements OnInit {
     }
   }
 
-  setIfFinalRound(tournamentEvent: TournamentEvent): void {
+  setIfFinalRoundComplete(tournamentEvent: TournamentEvent): void {
     if(this.isCompletedEvent(tournamentEvent) && tournamentEvent.round === this.finalRound) {
-      this.isFinalRound = true;
+      this.eventsCompletedInFinalRound++;
+      if(!tournamentEvent.doubleHeader || this.eventsCompletedInFinalRound >= 2) {
+        this.isFinalRound = true;
+      }
     }
   }
 

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { TournamentEvent } from 'src/app/models/tournament-event';
 
 @Component({
@@ -9,9 +10,11 @@ import { TournamentEvent } from 'src/app/models/tournament-event';
 export class EventResultComponent implements OnInit {
   @Input() tournamentEvent!: TournamentEvent;
   displayedColumns: string[] = ['icon', 'position', 'name', 'points', 'ejc'];
-  dataSource: any = [];
+  dataSource: any = [];  
+  eventBannerUrl!: string;
+  titleOverlayUrl!: string;
 
-  constructor() { }
+  constructor(private afStorage: AngularFireStorage) { }
 
   ngOnInit(): void {
     if (this.tournamentEvent.isOvertime) {
@@ -19,6 +22,8 @@ export class EventResultComponent implements OnInit {
     } else {
       this.populateColumns();
     }
+    this.showImage(this.tournamentEvent.eventName!);
+    this.getTitleOverlay();
   }
 
   populateColumns(): void {
@@ -62,6 +67,24 @@ export class EventResultComponent implements OnInit {
 
   getIcon(positionForIcon: string, element: any): boolean {
     return positionForIcon === element.position ? true : false;
+  }
+
+  showImage(eventName: string): void {
+    let storageRef = this.afStorage.storage.ref();
+    storageRef.child(`${eventName}.jpg`).getDownloadURL().then((url) => {
+      this.eventBannerUrl = url;
+    }).catch( (error) => {
+      this.showImage('default');
+    });
+  }
+
+  getTitleOverlay(): void {
+    const url = '../../../../assets/';
+    this.titleOverlayUrl = this.tournamentEvent.eventDescription ? `${url}event-title-with-subtitle.png` : `${url}event-title.png`;
+  }
+
+  isCompletedEvent(): boolean {
+    return this.tournamentEvent.first ? true : false;
   }
 
 }
