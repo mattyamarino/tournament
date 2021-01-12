@@ -1,6 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatAccordion, MatExpansionPanel } from '@angular/material/expansion';
 import { FINAL_ROUND } from 'src/app/models/constants';
 import { Contestant } from 'src/app/models/contestant';
 import { TournamentEvent } from 'src/app/models/tournament-event';
@@ -58,8 +59,8 @@ export class TournamentParentComponent implements OnInit {
 
   getTournamentEvents(): void {
     this.loading = true;
-    // this.firestore.collection("tournamentEvents").valueChanges().subscribe(res => {
-      this.firestore.collection("z-test-tournamentEvents").valueChanges().subscribe(res => {
+    this.firestore.collection("tournamentEvents").valueChanges().subscribe(res => {
+      // this.firestore.collection("z-test-tournamentEvents").valueChanges().subscribe(res => {
       this.resetValues();
       this.events = <TournamentEvent[]>res;
       this.calculateScores();

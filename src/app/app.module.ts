@@ -17,6 +17,7 @@ import { TournamentParentComponent } from './tournament-parent/tournament-parent
 import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { EventAdminParentComponent } from './event-admin-parent/event-admin-parent.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { EventCardByRoundComponent } from './tournament-parent/event-card-by-round/event-card-by-round.component';
@@ -26,6 +27,10 @@ import { TiebreakersComponent } from './rules/tiebreakers/tiebreakers.component'
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
 import { BestPresentationAwardComponent } from './tournament-parent/event-card-by-round/best-presentation-award/best-presentation-award.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ContentModalComponent } from './nav-bar/content-modal/content-modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { RulesContentComponent } from './nav-bar/content-modal/rules-content/rules-content.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,10 @@ import { BestPresentationAwardComponent } from './tournament-parent/event-card-b
     EventCardByRoundComponent,
     EventResultComponent,
     TiebreakersComponent,
-    BestPresentationAwardComponent
+    BestPresentationAwardComponent,
+    NavBarComponent,
+    ContentModalComponent,
+    RulesContentComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,9 @@ import { BestPresentationAwardComponent } from './tournament-parent/event-card-b
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireStorageModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

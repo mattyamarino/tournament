@@ -1,4 +1,9 @@
-<mat-expansion-panel hideToggle class="expansion-panel-margin" expanded=false>
+<mat-expansion-panel 
+#tournamentRound
+(focusout)="tournamentRound.close()"
+hideToggle 
+class="expansion-panel-margin" 
+expanded=false>
     <mat-expansion-panel-header>
         <mat-panel-title class="bungee-title">
             Round {{ roundNumber}}
